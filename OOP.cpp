@@ -4,19 +4,21 @@ using namespace std;
 
 class Student
 {
-public:
+public: // Публичные данные
 	string name;
 
-	Student() {}
+	Student() {} // Пустой конструктор
 
-	Student(int id, string n, int age)
+	Student(int id, string n, int age) // Конструктор с параметрами
 	{
 		_id = id;
 		name = n;
 		_age = age;
 	}
 
-	void Print()
+	~Student() {} // Пустой деструктор
+
+	void Print() // Вывод всей информации
 	{
 		cout << endl;
 		cout << "Id: " << _id << endl;
@@ -24,17 +26,17 @@ public:
 		cout << "Возраст: " << _age << endl;
 	}
 
-	int GetAge()
+	int GetAge() // Геттер для возраста
 	{
 		return _age;
 	}
 
-	void SetAge(int age)
+	void SetAge(int age) // Сеттер для возраста
 	{
 		_age = age;
 	}
 
-private:
+private: // Приватные данные
 	int _id{};
 	int _age{};
 };
@@ -44,7 +46,7 @@ int main()
 	setlocale(0, "");
 
 	const int size = 10;
-	Student students[size];
+	Student students[size]; // Массив из студентов
 
 	for (int i = 0; i < size; i++)
 		students[i] = Student(i, "Name", rand() % 70);
